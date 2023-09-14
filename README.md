@@ -3,6 +3,8 @@
 </h2>
 <p align="center"><i>
   Python's missing algorave module. Hackable live coding tool for modern Python (3.10+)
+  A fork by C Baker to explore adding new senders and players : 
+  initially working on CSound  unsing ctcsound
 </i></p>
 
 <p align="center">

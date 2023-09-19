@@ -85,6 +85,7 @@ class csoundHandler(Sender, ctcsound.Csound):
 
     def scoreEvent(self, eventType, pfields, absp2mode=False):
         """Send a score event to csound"""
+        print(pfields)
         self.pt.scoreEvent(absp2mode, eventType, pfields)
 
     def flushMessages(self):
@@ -95,7 +96,10 @@ class csoundHandler(Sender, ctcsound.Csound):
     @alias_param(name="instrument", alias="ins")
     @alias_param(name="pitch", alias="n")
     @alias_param(name="params", alias="prm")
-    def CSN(self, instrument=1, dur=0.6, amp=0.7, pitch=440.0, params=None):
+    def CSN(self, instrument=1, dur=0.6, amp=0.7, pitch=440.0,params=[10, 0, 0.1, 0.2, 0.75, 0.3, 0, 2000, 10]):
         if params is None:
             params = []
-        self.note([instrument, self._nudge, dur, amp, pitch].extend(params))
+        noteP1 = [instrument, self._nudge, dur, amp, pitch]
+        for i in params:
+            noteP1.append(i)
+        self.note(noteP1)
